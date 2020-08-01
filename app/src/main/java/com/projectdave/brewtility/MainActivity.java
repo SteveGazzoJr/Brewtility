@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.projectdave.brewtility.customExceptions.GravityLessThanZeroException;
+import com.projectdave.brewtility.customExceptions.ImpossibleGravityException;
 import com.projectdave.brewtility.logic.ABVCalculator;
 import com.projectdave.brewtility.services.ABVCalcService;
 import com.projectdave.brewtility.ui.main.SectionsPagerAdapter;
@@ -23,7 +25,7 @@ import com.projectdave.brewtility.ui.main.SectionsPagerAdapter;
 public class MainActivity extends AppCompatActivity {
 
     ABVCalculator abvCalculator = new ABVCalculator();
-    ABVCalcService abvCalcService = new ABVCalcService(abvCalculator, this.getApplicationContext());
+    ABVCalcService abvCalcService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +36,10 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
+        abvCalcService = new ABVCalcService(abvCalculator, this.getApplicationContext());
     }
 
-    public void calcAbv(View view){
+    public void calcAbv(View view) throws ImpossibleGravityException, GravityLessThanZeroException {
         TextView abvTextOut = (TextView)findViewById(R.id.txtAbvOut);
         EditText startingGravityIn = (EditText)findViewById(R.id.nmbrStartingGravity);
         EditText finalGravityIn = (EditText)findViewById(R.id.nmbrFinalGravity);
