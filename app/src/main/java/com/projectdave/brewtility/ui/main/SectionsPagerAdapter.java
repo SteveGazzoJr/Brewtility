@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.projectdave.brewtility.ABVCalcFragment;
-import com.projectdave.brewtility.GravityTempConverterFragment;
+import com.projectdave.brewtility.fragments.ABVCalcFragment;
+import com.projectdave.brewtility.fragments.GravityTempConverterFragment;
 import com.projectdave.brewtility.R;
 
 /**

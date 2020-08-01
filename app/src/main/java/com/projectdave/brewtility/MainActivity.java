@@ -16,12 +16,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.projectdave.brewtility.logic.ABVCalculator;
 import com.projectdave.brewtility.services.ABVCalcService;
 import com.projectdave.brewtility.ui.main.SectionsPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    ABVCalcService abvCalcService = new ABVCalcService();
+    ABVCalculator abvCalculator = new ABVCalculator();
+    ABVCalcService abvCalcService = new ABVCalcService(abvCalculator, this.getApplicationContext());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
