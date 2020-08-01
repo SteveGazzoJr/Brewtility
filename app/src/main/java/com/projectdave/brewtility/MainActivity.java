@@ -41,6 +41,12 @@ public class MainActivity extends AppCompatActivity {
         TextView abvTextOut = (TextView)findViewById(R.id.txtAbvOut);
         EditText startingGravityIn = (EditText)findViewById(R.id.nmbrStartingGravity);
         EditText finalGravityIn = (EditText)findViewById(R.id.nmbrFinalGravity);
-        abvTextOut.setText(Float.toString(abvCalcService.getABV(startingGravityIn.getText().toString(), finalGravityIn.getText().toString())));
+        float abv = abvCalcService.getABV(startingGravityIn.getText().toString(), finalGravityIn.getText().toString());
+
+        if (abv == 0) {
+            abvTextOut.setText("Data input error");
+        } else {
+            abvTextOut.setText(Float.toString(abv));
+        }
     }
 }
