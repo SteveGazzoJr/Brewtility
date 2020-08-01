@@ -3,11 +3,6 @@ package com.projectdave.brewtility.services;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.widget.Toast;
-
-import com.projectdave.brewtility.MainActivity;
-import com.projectdave.brewtility.customExceptions.GravityLessThanZeroException;
-import com.projectdave.brewtility.customExceptions.ImpossibleGravityException;
 import com.projectdave.brewtility.logic.ABVCalculator;
 
 public class ABVCalcService {
@@ -20,7 +15,7 @@ public class ABVCalcService {
         this.context = context;
     }
 
-    public float getABV(String startingGravityIn, String finalGravityIn) throws GravityLessThanZeroException, ImpossibleGravityException {
+    public float getABV(String startingGravityIn, String finalGravityIn){
         float startingGravity =  0;
         float finalGravity = 0;
         try {
@@ -29,15 +24,15 @@ public class ABVCalcService {
         }
         catch(NumberFormatException e){
             generateBadNumberDialog("Please ensure that both boxes contain a valid number");
-            throw e;
+            return 0;
         }
         if(startingGravity <= 0 || finalGravity <= 0){
             generateBadNumberDialog("Please ensure that starting and final gravity are greater than zero");
-            throw new GravityLessThanZeroException();
+            return 0;
         }
         if(finalGravity - startingGravity <= 0){
             generateBadNumberDialog("Starting gravity cannot be greater than final gravity");
-            throw new ImpossibleGravityException();
+            return 0;
         }
         return abvCalculator.calcABVAsPercentage(startingGravity, finalGravity);
     }
