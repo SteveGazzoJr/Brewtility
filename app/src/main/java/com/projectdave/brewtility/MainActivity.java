@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcAbv(View view) {
-        TextView abvTextOut = (TextView)findViewById(R.id.lblConvertedReadingOut);
-        EditText startingGravityIn = (EditText)findViewById(R.id.nmbrInitialReading);
-        EditText finalGravityIn = (EditText)findViewById(R.id.nmbrActualTemp);
+        TextView abvTextOut = (TextView)findViewById(R.id.txtAbvOut);
+        EditText startingGravityIn = (EditText)findViewById(R.id.nmbrStartingGravity);
+        EditText finalGravityIn = (EditText)findViewById(R.id.nmbrFinalGravity);
         try {
             float abv = calculationService.getABV(startingGravityIn.getText().toString(), finalGravityIn.getText().toString());
             abvTextOut.setText(Float.toString(abv));
