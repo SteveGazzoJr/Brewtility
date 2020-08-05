@@ -36,7 +36,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">>
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtFinalGravity"
+            android:id="@+id/txtViewPager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/finalGravity"
@@ -45,7 +45,7 @@
             tools:layout_editor_absoluteY="113dp" />
 
         <Button
-            android:id="@+id/btnConvert"
+            android:id="@+id/btnViewPager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Button"
@@ -54,7 +54,7 @@
             tools:layout_editor_absoluteY="217dp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txtStartingGravity"
+            android:id="@+id/txtViewPager2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/startingGravity"
