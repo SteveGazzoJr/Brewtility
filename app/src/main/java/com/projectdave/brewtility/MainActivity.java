@@ -36,15 +36,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcAbv(View view) {
-        TextView abvTextOut = (TextView)findViewById(R.id.txtAbvOut);
-        EditText startingGravityIn = (EditText)findViewById(R.id.nmbrStartingGravity);
-        EditText finalGravityIn = (EditText)findViewById(R.id.nmbrFinalGravity);
+        TextView abvTextOut = (TextView)findViewById(R.id.lblConvertedReadingOut);
+        EditText startingGravityIn = (EditText)findViewById(R.id.nmbrInitialReading);
+        EditText finalGravityIn = (EditText)findViewById(R.id.nmbrActualTemp);
         try {
             float abv = calculationService.getABV(startingGravityIn.getText().toString(), finalGravityIn.getText().toString());
             abvTextOut.setText(Float.toString(abv));
         }
         catch(BadDataException b){
             abvTextOut.setText("Data input error");
+        }
+    }
+
+    public void getCorrectedSpecificGravity(View view){
+        TextView correctedSGTextOut = (TextView)findViewById(R.id.lblConvertedReadingOut);
+        EditText initialReadingIn = (EditText)findViewById(R.id.nmbrInitialReading);
+        EditText actualTempIn = (EditText)findViewById(R.id.nmbrActualTemp);
+        EditText calibrationTemptIn = (EditText)findViewById(R.id.nmbrCalibrationTemp);
+        double correctedHydrometerReading;
+        try{
+            correctedHydrometerReading = calculationService.getCorrectedHydrometerReading(initialReadingIn.getText().toString(),
+                                                                            actualTempIn.getText().toString(),
+                                                                            calibrationTemptIn.getText().toString());
+            correctedSGTextOut.setText(Double.toString(correctedHydrometerReading));
+        }
+        catch(BadDataException b){
+            correctedSGTextOut.setText("Data input error");
         }
     }
 }

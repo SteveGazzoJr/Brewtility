@@ -6,6 +6,11 @@
     <string name="finalGravity">Final Gravity</string>
     <string name="abvCalcButton">Calculate ABV</string>
     <string name="abvLabel">Final Alcohol By Volume (%):</string>
+    <string name="hydrometerConverterLabel">Converted hydrometer reading:</string>
+    <string name="hydrometerInitialReading">Initial Reading</string>
+    <string name="hydrometerActualTemp">Actual Temperature</string>
+    <string name="hydrometerCalibrationTemp">Calibration Temperature</string>
+    <string name="hydrometerCalcButton">Get Corrected Reading</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
