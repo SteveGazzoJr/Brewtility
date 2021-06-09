@@ -7,7 +7,7 @@ import com.projectdave.brewtility.logic.ABVCalculator;
 import com.projectdave.brewtility.logic.SpecificGravityTemperatureConverter;
 
 import java.text.DecimalFormat;
-//test commit comment
+
 public class CalculationService {
 
     ABVCalculator abvCalculator = new ABVCalculator();
